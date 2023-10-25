@@ -54,3 +54,34 @@ def step_impl(context):
 
     assert navBarExists
     driver.quit()
+
+
+@step("I enter invalid password {invalidPassword}")
+def step_impl(context, invalidPassword):
+    """
+    :type context: behave.runner.Context
+    :type invalidPassword: str
+    """
+    driver.find_element(By.ID, "password").send_keys(invalidPassword)
+
+
+@then("I should receive an error message")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    time.sleep(2)
+
+    errorMsgExists = driver.find_element(By.CSS_SELECTOR, ".error-container").is_displayed()
+    assert errorMsgExists
+
+    driver.quit()
+
+
+@when("I enter invalid email {invalidEmail}")
+def step_impl(context, invalidEmail):
+    """
+    :type context: behave.runner.Context
+    :type invalidEmail: str
+    """
+    driver.find_element(By.ID, "email").send_keys(invalidEmail)
