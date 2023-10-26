@@ -66,5 +66,5 @@ Feature: Test Login functionality
     Examples:
     | accountType |
     | Facebook    |
-#    | Google      |
-#    | Apple       |
+    | Google      |
+    | Apple       |
